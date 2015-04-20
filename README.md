@@ -1,10 +1,19 @@
 Rock Paper Scissors
 =====
 
-##Build & Run
+###Build
+```sh
 npm install
 npm run build
-npm start
+```
 
-##Tests & Coverage
+###Run
+```sh
+npm start
+go to localhost:8080 in browser
+```
+
+###Tests & Coverage
+```sh
 npm test
+```
