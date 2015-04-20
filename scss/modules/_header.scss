@@ -1,0 +1,6 @@
+.header {
+	text-align: center;
+	border-bottom: 1px solid #999;
+	@include rem-px('padding-bottom', gutter(1));
+	margin-bottom: 0;
+}

@@ -1,0 +1,30 @@
+.container {
+	@include rem-px('width', col(4));
+	margin: 0 auto;
+}
+
+@include for-medium(mobile-landscape) {
+	.container {
+		@include rem-px('width', col(6));
+	}
+}
+
+@include for-medium(tablet) {
+	.container {
+		@include rem-px('width', col(8));
+	}
+}
+
+@include for-medium(desktop) {
+	.container {
+		@include rem-px('width', col(12));
+	}
+}
+
+@include for-medium(desktop-large) {
+	.container {
+//		@include rem-px('width', col(16));
+	}
+}
+
+

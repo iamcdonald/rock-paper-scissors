@@ -1,0 +1,88 @@
+$rock-color: #cc9966;
+$paper-color: #f9f9f9;
+$scissors-color: #999999;
+
+.item {
+	border-radius: 50%;
+	//transition: height 0.2s 0.3s, width 0.2s 0.3s, margin-right 0.2s 0.3s;
+	@include rem-px('width', col(1.5));
+	@include rem-px('height', col(1.5));
+	@include rem-px('padding-top', col(0.75));
+	display: inline-block;
+	box-sizing: border-box;
+
+	.human &:hover {
+		cursor: pointer;
+	}
+	.game-finished &:hover {
+		cursor: default;
+	}
+
+	&.rock {
+		background-color: $rock-color;
+		.human &:hover {
+			background-color: darken($rock-color, 10%);
+		}	
+		.game-finished &:hover {
+			background-color: $rock-color;
+		}
+	}
+
+	&.paper {
+		border: 1px solid #ddd;
+		background-color: $paper-color;
+		.human &:hover {
+			background-color: darken($paper-color, 10%);
+		}
+		.game-finished &:hover {
+			background-color: $paper-color;
+		}
+	}
+
+	&.scissors {
+		background-color: $scissors-color;
+		box-shadow: inset;
+		.human &:hover {
+			background-color: darken($scissors-color, 10%);
+		}
+		.game-finished &:hover {
+			background-color: $scissors-color;
+		}
+	}
+}
+
+@include for-medium(mobile-landscape) {
+	.item {
+		@include rem-px('width', col(2));
+		@include rem-px('height', col(2));
+		@include rem-px('padding-top', col(1));
+	}
+}
+
+@include for-medium(tablet) {
+	.item:nth-last-child(n+2) {
+		@include rem-px('margin-right', gutter(1));
+	}
+}
+
+@include for-medium(desktop) {
+	.item {
+		@include rem-px('width', col(2.5));
+		@include rem-px('height', col(2.5));
+		@include rem-px('padding-top', col(1.25) - 0.75);
+		&:nth-last-child(n+2) {
+			@include rem-px('margin-right', gutter(2));
+		}
+	}
+}
+
+@include for-medium(desktop-large) {
+	.item {
+		@include rem-px('width', col(3));
+		@include rem-px('height', col(3));
+		@include rem-px('padding-top', col(1.5) - 1);
+		&:nth-last-child(n+2) {
+			@include rem-px('margin-right', gutter(2));
+		}
+	}
+}

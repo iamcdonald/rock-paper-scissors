@@ -1,0 +1,39 @@
+.game {
+	@include rem-px('margin-bottom', gutter(1));
+	border-bottom: 1px solid #ccc; 
+	background-color: transparent;
+	transition: max-height 0.2s, opacity 0.3s 0.2s;
+	overflow: hidden;
+	max-height: 0;
+	opacity: 0;
+	&.is-visible {
+		opacity: 1;
+		@include rem-px('max-height', col(10)); 
+	}
+	//@include rem-px('margin', gutter(2) 0); 
+	&.is-draw {
+		//opacity: 0.5;
+	}
+	&.p1-won {
+		.player:last-of-type {
+			//opacity: 0.5; 
+		}
+	}
+	&.p2-won {
+		.player:first-of-type {
+			//opacity: 0.5;
+		}	
+	}
+}
+
+@include for-medium(desktop) {
+	.game {
+		@include rem-px('font-size', 1.5);
+	}
+}
+
+@include for-medium(desktop-large) {
+	.game {
+		@include rem-px('font-size', 2)
+	}
+}

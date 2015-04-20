@@ -1,0 +1,47 @@
+$win: #00cc66;
+$draw: #6699cc;
+$lose: #cd545b;
+
+.outcome {
+	border-radius: 2px;
+	position: relative;
+	@include rem-px('padding', gutter(0.5) gutter(1));
+	text-align: center;
+	transition: margin-bottom 0.2s;
+	
+	&.is-visible {
+		@include rem-px('margin-bottom', gutter(1.5));
+		&:after {
+			width: 0;
+			height: 0;
+			border-left: 20px solid transparent;
+			border-right: 20px solid transparent;
+			border-top: 20px solid;
+			content: "";
+			left: 0;
+			position: absolute;
+			bottom: -19px;
+			left: 50%;
+			margin-left: -20px
+		}
+		color: #fff;
+	}
+	&.is-draw {
+		&:after {
+			border-top-color: $draw;
+		}
+		background-color: $draw;
+	}
+	&.is-win {
+		&:after {
+			border-top-color: $win;
+		}
+		background-color: $win;
+	}
+	&.is-loss {
+		&:after {
+			border-top-color: $lose;
+		}
+		background-color: $lose;
+	}
+}

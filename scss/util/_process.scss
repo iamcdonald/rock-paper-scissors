@@ -1,0 +1,20 @@
+@mixin rem-px($prop, $vals) {
+	#{$prop}: process($vals, true);
+	#{$prop}: process($vals);
+}
+
+@function process($vals, $px: false) {
+	$list: ();
+	@each $val in $vals {
+		@if ($val != 0) and (type-of($val) != "string") and (unitless($val)) {
+			@if ($px) {
+				$list: append($list, ($val * $base-size) + px);
+			} @else {
+				$list: append($list, $val + rem);
+			}
+		} @else {
+			$list: append($list, $val);		
+		}
+	}
+    @return $list;
+}

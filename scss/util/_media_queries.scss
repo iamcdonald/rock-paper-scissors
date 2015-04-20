@@ -1,0 +1,39 @@
+@mixin for-medium($medium) {
+	@if $medium == mobile-portrait {
+		/*
+		Mobile layout 
+		240â€“479 px
+		Zoomed out below 320 px
+		 */
+
+		@media screen and (min-width: 280px) { @content; }
+	} @else if $medium == mobile-landscape {
+				/*
+				Wide mobile layout 
+				480-767 px
+				Zoomed in above 480 px
+				 */
+		@media only screen and (min-width: 480px) { @content; }
+	} @else if $medium == tablet {
+		/*
+			Tablet layout 
+			600-911 px
+			Zoomed in above 600 px
+		 */
+		@media only screen and (min-width: 600px) { @content; }
+	} @else if $medium == desktop {
+		/*
+			Widescreen layout 
+			912-1887 px
+			Zoomed in above 912 px
+		 */
+		@media only screen and (min-width: 912px) { @content; }
+	} @else if $medium == desktop-large {
+		/*
+			Widescreen layout 
+			912-1887 px
+			Zoomed in above 912 px
+		 */
+		@media only screen and (min-width: 1320px) { @content; }
+	}
+}

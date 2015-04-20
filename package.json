@@ -1,0 +1,31 @@
+{
+  "name": "rock-paper-scissors",
+  "version": "0.0.0",
+  "description": "a game of rock paper scissors",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "jshint .",
+    "test": "istanbul cover _mocha -- -R spec test/unit/ --recursive",
+    "prebuild": "rm -rf dist && mkdir dist && mkdir dist/js && mkdir dist/css",
+    "copy-html": "cp page/index.html dist",
+    "build-js": "browserify src/app.js > dist/js/app.js && uglifyjs dist/js/app.js > dist/js/app.min.js",
+    "build-css": "node-sass scss/main.scss dist/css/style.css && autoprefixer dist/css/style.css && cleancss dist/css/style.css > dist/css/style.min.css",
+    "build": "npm run copy-html && npm run build-js && npm run build-css",
+    "start": "http-server dist/"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^5.1.1",
+    "browserify": "^9.0.8",
+    "clean-css": "^3.2.0",
+    "http-server": "^0.8.0",
+    "istanbul": "^0.3.13",
+    "jsdom": "3.1.2",
+    "jshint": "^2.7.0",
+    "mocha": "^2.2.4",
+    "node-sass": "^2.1.1",
+    "proxyquire": "^1.4.0",
+    "sinon": "^1.14.1"
+  }
+}

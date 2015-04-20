@@ -1,0 +1,11 @@
+$base-size: 16;
+$column_width: 48;
+$gutter_width: 24;
+
+@function col($cols: 1) {
+	@return ($cols * ($column_width + $gutter_width) - $gutter_width)/$base-size;
+}
+
+@function gutter($multiple: 1) {
+	@return ($multiple * $gutter_width)/$base-size;
+}

@@ -1,0 +1,39 @@
+@keyframes pulse {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0.6;
+	}
+}
+
+.player {
+	background-color: transparent;
+	margin:12px 0;
+	text-align: center;	
+
+	.title {
+		@include rem-px('padding', gutter(0.5) 0);
+	}
+
+	&.computer .item {
+		@for $i from 1 through 3 {
+			&:nth-of-type(#{$i + 1}) {
+				animation: pulse 0.45s #{($i - 1) * 0.15}s infinite linear alternate;
+			}
+	  	}
+	}
+
+	.game-finished &.has-chosen {
+		.item {
+			opacity: 0.2;
+		}
+		.item.is-selected {
+			opacity:1;
+		}
+		&.computer .item{
+			animation: none;
+		}
+	}
+
+}

@@ -1,0 +1,10 @@
+[{
+	"title": "rock",
+	"beats": ["scissors"]
+}, {
+	"title": "paper",
+	"beats": ["rock"]
+}, {
+	"title": "scissors",
+	"beats": ["paper"]
+}]
